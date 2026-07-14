@@ -1,0 +1,232 @@
+:root {
+    /* Colors */
+    --c-primary: #5FB4E0; /* Sky blue */
+    --c-primary-dark: #4b92b7;
+    --c-mint: #A8DDC4; /* Mint green */
+    --c-mint-light: #e5f5ed;
+    --c-light-gray: #E8EBEC; /* Light gray */
+    --c-white: #FFFFFF;
+    --c-dark: #1a202c;
+    --c-secondary: #4a5568;
+    
+    /* Typography */
+    --font-main: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--c-secondary);
+    background-color: var(--c-white);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Utilities */
+.text-primary-custom { color: var(--c-primary) !important; }
+.text-mint { color: var(--c-mint) !important; }
+.text-dark-custom { color: var(--c-dark) !important; }
+.text-secondary-custom { color: var(--c-secondary) !important; }
+.bg-primary-custom { background-color: var(--c-primary) !important; }
+.bg-mint { background-color: var(--c-mint) !important; }
+.bg-mint-light { background-color: var(--c-mint-light) !important; }
+.bg-light-gray { background-color: var(--c-light-gray) !important; }
+
+/* Buttons */
+.btn-primary-custom {
+    background-color: var(--c-primary);
+    border-color: var(--c-primary);
+    color: var(--c-white);
+}
+.btn-primary-custom:hover {
+    background-color: var(--c-primary-dark);
+    border-color: var(--c-primary-dark);
+    color: var(--c-white);
+}
+
+.transition-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.transition-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(95, 180, 224, 0.2) !important;
+}
+
+.hover-white:hover {
+    color: var(--c-white) !important;
+}
+
+/* Sections */
+.py-6 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.min-vh-75 {
+    min-height: 75vh;
+}
+.max-w-700 {
+    max-width: 700px;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Gradient */
+.hero-bg-gradient {
+    background: linear-gradient(120deg, #f0f8ff, var(--c-light-gray), #e6f7ef, #e0f2fe);
+    background-size: 300% 300%;
+    animation: gradientAnimation 12s ease infinite;
+    z-index: 0;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg-gradient {
+        animation: none;
+        background-position: 0% 50%;
+    }
+}
+
+.hero-image-container {
+    height: 500px;
+    width: 100%;
+}
+
+.floating-badge {
+    bottom: -20px;
+    left: -20px;
+    z-index: 2;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-badge { animation: none; }
+}
+
+.icon-circle {
+    width: 48px;
+    height: 48px;
+}
+
+/* Slider Custom Styles */
+.calculator-card {
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.custom-range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 12px;
+    border-radius: 6px;
+    background: #d3d3d3;
+    outline: none;
+    transition: background 450ms ease-in;
+}
+
+.custom-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--c-primary);
+    cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(95, 180, 224, 0.1);
+    transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.custom-range::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background: var(--c-primary);
+    cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(95, 180, 224, 0.1);
+    transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.custom-range:active::-webkit-slider-thumb,
+.custom-range.dragging::-webkit-slider-thumb {
+    box-shadow: 0 0 0 12px rgba(95, 180, 224, 0.2);
+    transform: scale(1.1);
+}
+
+.custom-range:active::-moz-range-thumb,
+.custom-range.dragging::-moz-range-thumb {
+    box-shadow: 0 0 0 12px rgba(95, 180, 224, 0.2);
+    transform: scale(1.1);
+}
+
+/* Focus styles for accessibility */
+.custom-range:focus {
+    outline: 2px solid var(--c-primary);
+    outline-offset: 4px;
+}
+
+.price-number {
+    transition: color 0.2s ease, transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+.price-updating {
+    color: var(--c-primary) !important;
+    transform: scale(1.05);
+}
+
+/* Beneficios */
+.benefit-card {
+    border-radius: 1.5rem;
+    background-color: var(--c-white);
+    border: 1px solid var(--c-light-gray);
+    transition: border-color 0.3s ease;
+}
+.benefit-card:hover {
+    border-color: var(--c-mint);
+}
+.icon-box {
+    width: 80px;
+    height: 80px;
+}
+
+/* Cómo funciona */
+.step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+}
+
+/* Testimonials */
+.avatar {
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .floating-badge {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+    }
+    .hero-image-container {
+        height: 350px;
+    }
+    .display-4 {
+        font-size: 2.5rem;
+    }
+}
